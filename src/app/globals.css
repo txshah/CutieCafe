@@ -1,0 +1,54 @@
+@import 'leaflet/dist/leaflet.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  background: #fbfaf6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: #21201d;
+  background:
+    linear-gradient(180deg, rgba(119, 169, 197, 0.18), transparent 340px),
+    #fbfaf6;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+  background: #ece7dc;
+}
+
+.cafe-marker {
+  align-items: center;
+  background: #d86f56;
+  border: 2px solid #fbfaf6;
+  border-radius: 999px;
+  box-shadow: 0 8px 22px rgba(33, 32, 29, 0.24);
+  color: #fbfaf6;
+  display: flex;
+  font-size: 12px;
+  font-weight: 800;
+  height: 34px;
+  justify-content: center;
+  width: 34px;
+}
