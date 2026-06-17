@@ -1,6 +1,6 @@
 # SF Cafe Passport
 
-`lockin.cafe` is a Next.js app for discovering work-friendly cafes in San Francisco (Mission + SoMa), with:
+`cute.cafe` is a Next.js app for discovering work-friendly cafes in San Francisco (Mission + SoMa), with:
 - a cafe map and filterable list
 - cafe detail pages with cached Reddit mentions
 - a passport/check-in flow with points, stamps, and rewards
