@@ -5,13 +5,14 @@ import { VibeBar } from '@/components/VibeBar'
 import { formatNeighborhood, getCafeById } from '@/lib/cafes'
 
 interface CafePageProps {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
-export default function CafePage({ params }: CafePageProps) {
-  const cafe = getCafeById(params.id)
+export default async function CafePage({ params }: CafePageProps) {
+  const { id } = await params
+  const cafe = getCafeById(id)
   if (!cafe) notFound()
 
   return (
