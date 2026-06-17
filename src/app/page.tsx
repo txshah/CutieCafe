@@ -3,7 +3,7 @@
 import dynamic from 'next/dynamic'
 import { Coffee, NotebookTabs } from 'lucide-react'
 import Link from 'next/link'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import cafes from '../../data/cafes.json'
 import type { Cafe, FilterState } from '@/types'
 import { CafeCard } from '@/components/CafeCard'
@@ -11,7 +11,7 @@ import { CafeDrawer } from '@/components/CafeDrawer'
 import { FilterBar } from '@/components/FilterBar'
 import { UserPill } from '@/components/UserPill'
 import { filterCafes } from '@/lib/cafes'
-import { loadUser } from '@/lib/user'
+import { createDefaultUser, loadUser } from '@/lib/user'
 
 const CafeMap = dynamic(() => import('@/components/Map').then((module) => module.CafeMap), { ssr: false })
 
@@ -24,8 +24,14 @@ const initialFilters: FilterState = {
 export default function Home() {
   const [filters, setFilters] = useState(initialFilters)
   const [selectedCafe, setSelectedCafe] = useState<Cafe | null>(null)
-  const [user] = useState(() => loadUser())
+  const [user, setUser] = useState(() => createDefaultUser())
   const filtered = useMemo(() => filterCafes(cafes as Cafe[], filters), [filters])
+
+  useEffect(() => {
+    queueMicrotask(() => {
+      setUser(loadUser())
+    })
+  }, [])
 
   return (
     <main className="min-h-screen pb-28">
@@ -71,4 +77,3 @@ export default function Home() {
     </main>
   )
 }
-

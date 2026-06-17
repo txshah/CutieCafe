@@ -5,7 +5,7 @@ import type { Cafe, Stamp, User } from '@/types'
 
 const STORAGE_KEY = 'lockin-cafe-user'
 
-function createDefaultUser(): User {
+export function createDefaultUser(): User {
   return {
     id: 'local-user',
     name: 'Cafe Regular',
@@ -56,4 +56,3 @@ export function checkIn(user: User, cafe: Cafe): User {
     stamps: [stamp, ...user.stamps],
   }
 }
-

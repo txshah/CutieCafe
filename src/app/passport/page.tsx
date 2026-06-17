@@ -2,19 +2,25 @@
 
 import { ArrowLeft, Coffee, MapPin } from 'lucide-react'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import cafes from '../../../data/cafes.json'
 import { PassportBook } from '@/components/PassportBook'
 import { PunchCard } from '@/components/PunchCard'
 import { RewardCard } from '@/components/RewardCard'
 import { CafeCard } from '@/components/CafeCard'
 import { rewards } from '@/lib/points'
-import { checkIn, loadUser, saveUser } from '@/lib/user'
+import { checkIn, createDefaultUser, loadUser, saveUser } from '@/lib/user'
 import type { Cafe } from '@/types'
 
 export default function PassportPage() {
-  const [user, setUser] = useState(() => loadUser())
+  const [user, setUser] = useState(() => createDefaultUser())
   const [lastCheckin, setLastCheckin] = useState<string | null>(null)
+
+  useEffect(() => {
+    queueMicrotask(() => {
+      setUser(loadUser())
+    })
+  }, [])
 
   function handleCheckIn(cafe: Cafe) {
     const next = checkIn(user, cafe)
@@ -70,14 +76,14 @@ export default function PassportPage() {
           </div>
           <div className="max-h-[70vh] overflow-y-auto overflow-x-hidden pr-1">
             <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-            {(cafes as Cafe[]).map((cafe) => (
-              <div key={cafe.id} className="space-y-2">
-                <CafeCard cafe={cafe} />
-                <button className="h-11 w-full rounded-md bg-coral font-black text-white" onClick={() => handleCheckIn(cafe)}>
-                  Stamp {cafe.name}
-                </button>
-              </div>
-            ))}
+              {(cafes as Cafe[]).map((cafe) => (
+                <div key={cafe.id} className="space-y-2">
+                  <CafeCard cafe={cafe} />
+                  <button className="h-11 w-full rounded-md bg-coral font-black text-white" onClick={() => handleCheckIn(cafe)}>
+                    Stamp {cafe.name}
+                  </button>
+                </div>
+              ))}
             </div>
           </div>
         </section>
