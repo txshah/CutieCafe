@@ -8,12 +8,12 @@ export function PassportBook({ user }: { user: User }) {
     <section className="rounded-lg border border-line bg-paper p-4 shadow-sm">
       <div className="flex items-center justify-between gap-4">
         <div>
-          <h2 className="text-2xl font-black">Passport</h2>
-          <p className="mt-1 text-sm font-semibold text-ink/60">{user.stamps.length} stamps collected</p>
+          <h2 className="text-2xl font-black">Passport 🐼</h2>
+          <p className="mt-1 text-sm font-semibold text-ink/60">{user.stamps.length} stamps collected ✨</p>
         </div>
         <div className="rounded-md bg-ink px-3 py-2 text-right text-paper">
           <p className="text-xs font-bold uppercase text-paper/60">Tier</p>
-          <p className="font-black">{user.tier}</p>
+          <p className="font-black">{user.tier} 🏅</p>
         </div>
       </div>
 

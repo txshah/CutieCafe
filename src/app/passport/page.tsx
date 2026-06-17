@@ -30,7 +30,7 @@ export default function PassportPage() {
   }
 
   return (
-    <main className="min-h-screen px-4 py-5">
+    <main className="min-h-screen bg-[radial-gradient(circle_at_18%_18%,rgba(216,111,86,0.13),transparent_36%),radial-gradient(circle_at_82%_14%,rgba(101,132,71,0.14),transparent_34%),#fbfaf6] px-4 py-5">
       <div className="mx-auto max-w-6xl space-y-5">
         <header className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
           <div>
@@ -42,7 +42,7 @@ export default function PassportPage() {
               <Coffee className="h-4 w-4" />
               {user.handle}
             </p>
-            <h1 className="mt-1 text-3xl font-black md:text-4xl">Passport + Rewards</h1>
+            <h1 className="mt-1 text-3xl font-black md:text-4xl">Passport + Rewards 🐾☕</h1>
           </div>
           <div className="rounded-lg border border-line bg-ink p-4 text-paper">
             <p className="text-sm font-bold text-paper/65">Balance</p>
@@ -52,7 +52,7 @@ export default function PassportPage() {
 
         {lastCheckin ? (
           <div className="rounded-lg border border-matcha bg-white p-4 font-bold text-matcha">
-            Checked in at {lastCheckin}. Stamp added.
+            ✅ Checked in at {lastCheckin}. Stamp added 🐻
           </div>
         ) : null}
 
@@ -61,7 +61,7 @@ export default function PassportPage() {
           <div className="space-y-5">
             <PunchCard count={user.stamps.length} />
             <section className="grid gap-3">
-              <h2 className="text-xl font-black">Rewards</h2>
+              <h2 className="text-xl font-black">Rewards 🎁🐱</h2>
               {rewards.map((reward) => (
                 <RewardCard key={reward.id} reward={reward} user={user} />
               ))}
@@ -72,7 +72,7 @@ export default function PassportPage() {
         <section className="space-y-3">
           <div className="flex items-center gap-2">
             <MapPin className="h-5 w-5 text-coral" />
-            <h2 className="text-xl font-black">Check In</h2>
+            <h2 className="text-xl font-black">Check In 📍🦊</h2>
           </div>
           <div className="max-h-[70vh] overflow-y-auto overflow-x-hidden pr-1">
             <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">

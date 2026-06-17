@@ -35,7 +35,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen pb-28">
-      <header className="border-b border-line bg-paper/86 backdrop-blur">
+      <header className="sticky top-0 z-[700] border-b border-line bg-paper/92 backdrop-blur">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-5 md:flex-row md:items-center md:justify-between">
           <div>
             <p className="flex items-center gap-2 text-sm font-black uppercase text-coral">
@@ -54,20 +54,22 @@ export default function Home() {
       <div className="mx-auto grid max-w-7xl gap-5 px-4 py-5 lg:grid-cols-[minmax(0,1fr)_420px]">
         <section className="space-y-4">
           <FilterBar filters={filters} onChange={setFilters} />
-          <div className="h-[58vh] min-h-[460px]">
+          <div className="h-[52vh] min-h-[340px] md:h-[58vh] md:min-h-[460px]">
             <CafeMap cafes={filtered} selectedCafe={selectedCafe} onSelect={setSelectedCafe} />
           </div>
         </section>
 
-        <section className="space-y-3">
+        <section className="flex flex-col space-y-3 lg:max-h-[calc(58vh+56px)] lg:min-h-[460px] lg:overflow-hidden">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-black">{filtered.length} cafes</h2>
             <span className="text-sm font-semibold text-ink/55">Mission + SoMa track</span>
           </div>
-          <div className="grid gap-3">
-            {filtered.map((cafe) => (
-              <CafeCard key={cafe.id} cafe={cafe} onSelect={setSelectedCafe} />
-            ))}
+          <div className="min-h-0 flex-1 overflow-visible lg:overflow-y-auto lg:overflow-x-hidden lg:pr-1">
+            <div className="grid gap-3">
+              {filtered.map((cafe) => (
+                <CafeCard key={cafe.id} cafe={cafe} onSelect={setSelectedCafe} />
+              ))}
+            </div>
           </div>
         </section>
       </div>
