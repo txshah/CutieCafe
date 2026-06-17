@@ -14,9 +14,9 @@ npm run dev
 
 Open `http://localhost:3000`.
 
-## Bright Data Usage (One-Shot)
+## Bright Data Usage (Reddit Scrapper - can be expanded cross social media platforms)
 
-Bright Data is used for a single Reddit scrape, then results are cached locally so you can avoid repeat credit usage.
+Bright Data is used for a single Reddit scrape (to store and save - we will run this one a timer on a daily or weekly basis), then results are cached locally so you can avoid repeat credit usage.
 
 1. Add env vars in `.env.local`:
    - `BRIGHT_DATA_API_KEY`
