@@ -68,7 +68,8 @@ export default function PassportPage() {
             <MapPin className="h-5 w-5 text-coral" />
             <h2 className="text-xl font-black">Check In</h2>
           </div>
-          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+          <div className="max-h-[70vh] overflow-y-auto overflow-x-hidden pr-1">
+            <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
             {(cafes as Cafe[]).map((cafe) => (
               <div key={cafe.id} className="space-y-2">
                 <CafeCard cafe={cafe} />
@@ -77,10 +78,10 @@ export default function PassportPage() {
                 </button>
               </div>
             ))}
+            </div>
           </div>
         </section>
       </div>
     </main>
   )
 }
-
